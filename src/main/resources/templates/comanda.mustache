@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Comanda</title>
 </head>
 <body>
 <h1> Comanda {{comanda.id}}</h1>
-<p><strong>{{comanda.addresa_destinatorului}}</strong></p>
-<p><strong>{{comanda.adresa_expidetor}}</strong></p>
-<ol>{{#comanda.status}}
-    <li>Current state : {{status}} && {{data}}</li>
+<p><strong>addresa_destinatorului : {{comanda.addresa_destinatorului}}</strong></p>
+<p><strong>adresa_expidetor : {{comanda.adresa_expidetor}}</strong></p>
+<ol>Status : {{#comanda.status}}
+    <li>Current state : {{status}} and {{data}}</li>
     {{/comanda.status}}
 </ol>
 <p><strong>{{comanda.status}}</strong></p>
