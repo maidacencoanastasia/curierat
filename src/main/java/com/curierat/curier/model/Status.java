@@ -19,7 +19,7 @@ public class Status {
     private Comanda comanda;
 
     public Status() {
-        
+
     }
 
     public void setId(int id) {
