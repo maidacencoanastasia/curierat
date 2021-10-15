@@ -39,7 +39,7 @@ public class ComandController {
     }
 
     @GetMapping("/status/{id}/add")
-    public String updateStatus(@PathVariable(value = "id") Integer id,Model model) {
+    public String updateStatus(@PathVariable(value = "id") Integer id, Model model) {
         Status status = statusRepositoriu.findById(id).orElseThrow();
         return "update";
     }

@@ -1,4 +1,5 @@
 package com.curierat.curier.model;
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,6 +17,10 @@ public class Status {
     @ManyToOne
     @JoinColumn(name = "comenzi_id")
     private Comanda comanda;
+
+    public Status() {
+        
+    }
 
     public void setId(int id) {
         this.id = id;
