@@ -1,0 +1,41 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Maidacenco" id="comanda">
+        <sql
+                endDelimiter=";"
+                splitStatements="true"
+                stripComments="true">
+            create table Comanda(
+                id int,
+                addresa_destinatorului varchar(100),
+                adresa_expidetor varchar(100)
+            );
+        </sql>
+    </changeSet>
+    <changeSet id="status" author="anastasia">
+        <createTable tableName="status">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true"></constraints>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="data" type="datetime">
+                <constraints nullable="false"></constraints>
+            </column>
+            <column name="comenzi_id" type="int">
+                <constraints nullable="false" foreignKeyName="comenzi_fk" references="Comanda(id)"></constraints>
+            </column>
+        </createTable>
+    </changeSet>
+<changeSet id="add_autoincrement" author="anastasia">
+    <addAutoIncrement tableName="comenzi" columnName="id" startWith="1" ></addAutoIncrement>
+</changeSet>
+</databaseChangeLog>
